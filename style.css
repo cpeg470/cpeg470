@@ -1,69 +1,136 @@
-@import 'https://fonts.googleapis.com/css?family=Oswald';
 html, body {
-  background: linear-gradient(to left, #fd746c, #ff9068);
+  background-color: #f6fbff;
+  position: absolute;
+  overflow: hidden;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  font-family: "Oswald", sans-serif;
+  left: 0;
+  top: 0;
 }
 
-h1 {
-  color: #fff;
-  font-size: 5vw;
-  letter-spacing: 6px;
-}
-
-.pad {
-  width: 500px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  margin: 10px 0;
-  box-shadow: 0 8px 6px -6px black;
-  background-color: #444;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.4);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-.box:hover {
-  background-color: #5e5e5e;
+.reset {
+  transform: translate(-50%, 0);
+  font-family: sans-serif;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  position: absolute;
+  color: #f6fbff;
+  background-color: #ff392e;
   cursor: pointer;
+  left: 50%;
+  top: 50%;
 }
-.box:active {
-  background-color: #2b2b2b;
-  transform: scale(1.1);
-  transition: all 0.2s;
+@media screen and (orientation: landscape) {
+  .reset {
+    margin-top: 35vh;
+    padding: 2vh;
+    font-size: 2vh;
+  }
 }
-
-.active {
-  background-color: #2b2b2b;
-  transform: scale(1.1);
-  transition: all 0.2s;
-}
-
-.pad-1, .pad-2, .pad-3, .pad-4 {
-  border: 2px solid #2ecc71;
-}
-
-.pad-5, .pad-6, .pad-7, .pad-8 {
-  border: 2px solid #E5446D;
+@media screen and (orientation: portrait) {
+  .reset {
+    margin-top: 35vw;
+    padding: 2vw;
+    font-size: 2vw;
+  }
 }
 
-.pad-9, .pad-10, .pad-11, .pad-12 {
-  border: 2px solid #1abc9c;
+.checkers {
+  position: absolute;
+}
+
+.board {
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  font-size: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+@media screen and (orientation: landscape) {
+  .board {
+    box-shadow: 0 0 0 2vh #f5e062;
+  }
+}
+@media screen and (orientation: portrait) {
+  .board {
+    box-shadow: 0 0 0 2vw #f5e062;
+  }
+}
+
+.checker {
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+}
+@media screen and (orientation: landscape) {
+  .checker {
+    box-shadow: 0 -0.25vh 0 0.15vh rgba(0, 0, 0, 0.25) inset;
+    margin: 0.5vh 0 0 0.5vh;
+    width: 9vh;
+    height: 9vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  .checker {
+    box-shadow: 0 -0.25vw 0 0.15vw rgba(0, 0, 0, 0.25) inset;
+    margin: 0.5vw 0 0 0.5vw;
+    width: 9vw;
+    height: 9vw;
+  }
+}
+.checker.red {
+  background-color: #ff392e;
+}
+.checker.black {
+  background-color: #464748;
+}
+
+.column {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.column:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+.column li {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.column li:before {
+  content: "";
+  box-shadow: 0 0 0 4vw #f5e062;
+  border-radius: 50%;
+  position: absolute;
+  height: 80%;
+  width: 80%;
+  left: 10%;
+  top: 10%;
+}
+@media screen and (orientation: landscape) {
+  .column {
+    width: 10vh;
+  }
+  .column li {
+    width: 10vh;
+    height: 10vh;
+  }
+}
+@media screen and (orientation: portrait) {
+  .column {
+    width: 10vw;
+  }
+  .column li {
+    width: 10vw;
+    height: 10vw;
+  }
 }
